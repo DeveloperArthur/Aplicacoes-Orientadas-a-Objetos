@@ -1,2 +1,2 @@
 # Aplicacoes-Orientadas-a-Objetos
-Repositório destinado para estudos do 8º semestre de Aplicacoes Orientadas a Objetos. Curso de Ciência da computação da UNINOVE
+Aplicações em Java com servidor de aplicação Wildfly, conexão com banco de dados via Hibernate e arquitetura MVC
