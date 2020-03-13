@@ -6,7 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public abstract class Dao {
-
     private String servidor;
     private String banco;
     private String usuario;
@@ -15,7 +14,7 @@ public abstract class Dao {
     protected Connection conn;
 
     public Dao() {
-        this.servidor = "http://127.0.0.:3306";
+        this.servidor = "127.0.0.1:3306";
         this.banco = "bdcupom";
         this.usuario = "root";
         this.senha = "";
@@ -27,7 +26,7 @@ public abstract class Dao {
             Class.forName("org.gjt.mm.mysql.Driver");
             conn = (Connection) DriverManager.getConnection(url, usuario, senha);
         } catch (ClassNotFoundException | SQLException ex) {
-            throw new IllegalArgumentException("Erro ao conectar: " + ex.getMessage());
+            System.out.println("Erro ao conectar: " + ex.getMessage());
         }
     }
 }
