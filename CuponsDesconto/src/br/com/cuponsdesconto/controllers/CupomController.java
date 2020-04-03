@@ -16,4 +16,8 @@ public class CupomController {
     public Cupom buscar(int id) {
     	return (Cupom) new CupomDao().buscar(id);
     }
+    
+    public boolean atualizar(Cupom cupom) {
+    	return new CupomDao().atualizar(cupom);
+    }
 }

@@ -73,23 +73,48 @@ public class CuponsDesconto {
 		usuario.setNome(nomeDigitado);
 		usuario.setCpf(cpfDigitado);
 
-		usuarioController.adicionar(usuario);
+		boolean resultado = usuarioController.adicionar(usuario);
+		if (resultado) {
+			JOptionPane.showMessageDialog(null, "Usuario adicionado com sucesso");
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao adicionar Usuario");
+		}
 	}
 
 	public void deletarUsuario() {
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Informe o Id a ser deletado"));
-		usuarioController.excluir(id);
+		boolean resultado = usuarioController.excluir(id);
+		if (resultado) {
+			JOptionPane.showMessageDialog(null, "Usuario deletado com sucesso");
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao deletar Usuario");
+		}
 	}
 
 	public void atualizarUsuario() {
+		Usuario usuario = new Usuario();
 
+		int idDigitado = Integer.parseInt(JOptionPane.showInputDialog("Informe o Id a ser atualizado"));
+		String nomeDigitado = String.valueOf(JOptionPane.showInputDialog("Informe o novo nome do Usuario"));
+		String cpfDigitado = String.valueOf(JOptionPane.showInputDialog("Informe o novo CPF do Usuario"));
+
+		usuario.setId(idDigitado);
+		usuario.setNome(nomeDigitado);
+		usuario.setCpf(cpfDigitado);
+
+		boolean resultado = usuarioController.atualizar(usuario);
+		if (resultado) {
+			JOptionPane.showMessageDialog(null, "Usuario atualizado com sucesso");
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao atualizar Usuario");
+		}
 	}
 
 	public void buscarUsuario() {
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Informe o Id a ser buscado"));
 		Usuario usuario = usuarioController.buscar(id);
 		if (usuario != null) {
-			JOptionPane.showMessageDialog(null, "Nome: " + usuario.getNome() + " - CPF: " + usuario.getCpf());
+			JOptionPane.showMessageDialog(null, "Nome: " + usuario.getNome() + "\nCPF: " + usuario.getCpf());
 		} else {
 			JOptionPane.showMessageDialog(null, "Usuario nao encontrado");
 		}
@@ -106,22 +131,49 @@ public class CuponsDesconto {
 		String descricaoDigitada = String.valueOf(JOptionPane.showInputDialog("Informe a descricao do Cupom"));
 		int numeroDePontosDigitado = Integer
 				.parseInt(JOptionPane.showInputDialog("Informe o numero de pontos do Cupom"));
-		;
 
 		cupom.setCodigoCupom(codigoCupomDigitado);
 		cupom.setDescricao(descricaoDigitada);
 		cupom.setNumeroDePontos(numeroDePontosDigitado);
 
-		cupomController.adicionar(cupom);
+		boolean resultado = cupomController.adicionar(cupom);
+		if (resultado) {
+			JOptionPane.showMessageDialog(null, "Cupom adicionado com sucesso");
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao adicionar Cupom");
+		}
 	}
 
 	public void deletarCupom() {
 		int id = Integer.parseInt(JOptionPane.showInputDialog("Informe o Id a ser deletado"));
-		cupomController.excluir(id);
+		boolean resultado = cupomController.excluir(id);
+		if (resultado) {
+			JOptionPane.showMessageDialog(null, "Cupom deletado com sucesso");
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao deletar Cupom");
+		}
 	}
 
 	public void atualizarCupom() {
+		Cupom cupom = new Cupom();
 
+		int idDigitado = Integer.parseInt(JOptionPane.showInputDialog("Informe o Id a ser atualizado"));
+		int codigoCupomDigitado = Integer.parseInt(JOptionPane.showInputDialog("Informe o codigo do Cupom"));
+		String descricaoDigitada = String.valueOf(JOptionPane.showInputDialog("Informe a descricao do Cupom"));
+		int numeroDePontosDigitado = Integer
+				.parseInt(JOptionPane.showInputDialog("Informe o numero de pontos do Cupom"));
+
+		cupom.setId(idDigitado);
+		cupom.setCodigoCupom(codigoCupomDigitado);
+		cupom.setDescricao(descricaoDigitada);
+		cupom.setNumeroDePontos(numeroDePontosDigitado);
+
+		boolean resultado = cupomController.atualizar(cupom);
+		if (resultado) {
+			JOptionPane.showMessageDialog(null, "Cupom atualizado com sucesso");
+		} else {
+			JOptionPane.showMessageDialog(null, "Erro ao atualizar Cupom");
+		}
 	}
 
 	public void buscarCupom() {
