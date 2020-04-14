@@ -3,5 +3,7 @@ Aplicações em Java Server Pages com servidor de aplicação Tomcat e conexão 
 
 
 MODEL: JDBC
+
 VIEW: JSP
+
 CONTROLLER: Servlet
