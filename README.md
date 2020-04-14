@@ -1,5 +1,5 @@
 # Aplicacoes-Orientadas-a-Objetos
-Aplicações em Java Server Pages com servidor de aplicação Tomcat e conexão com banco de dados via JDBC na arquitetura MVC
+Aplicações na arquitetura MVC utilizando Java Server Pages, conexão com banco de dados via JDBC no servidor de aplicação Tomcat
 
 
 MODEL: JDBC
