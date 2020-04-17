@@ -7,6 +7,16 @@ public class Usuario extends Entidade {
     private String email;
     private String senha;
 
+    public Usuario() {
+    }
+    
+    public Usuario(String nome, String cpf, String email, String senha) {
+    	this.nome = nome;
+    	this.cpf = cpf;
+    	this.email = email;
+    	this.senha = senha;
+    }
+    
     public int getId() {
         return id;
     }

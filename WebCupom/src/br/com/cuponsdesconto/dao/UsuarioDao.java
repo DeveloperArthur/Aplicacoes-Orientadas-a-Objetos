@@ -95,8 +95,7 @@ public class UsuarioDao extends Dao implements FuncoesDao {
 
     @Override
     public List<Entidade> buscarTodos() {
-        return null;
-        
+        return null;  
     }
 
 }

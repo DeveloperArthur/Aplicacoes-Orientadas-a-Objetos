@@ -6,6 +6,15 @@ public class Cupom extends Entidade {
     private String descricao;
     private int numeroDePontos;
 
+    public Cupom() {
+    }
+    
+    public Cupom(int codigoCupom, String descricao, int numeroDePontos) {
+    	this.codigoCupom = codigoCupom;
+    	this.descricao = descricao;
+    	this.numeroDePontos = numeroDePontos;
+    }
+    
     public int getId() {
         return id;
     }
