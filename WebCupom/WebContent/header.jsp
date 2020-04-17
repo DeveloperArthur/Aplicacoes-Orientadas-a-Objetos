@@ -25,6 +25,7 @@
                 <li role="presentation"><a href="portfolio.html">Portfolio</a></li>
                 <li role="presentation"><a href="blog.html">Blog</a></li>
                 <li role="presentation"><a href="contact.html">Contact</a></li>
+                <li role="presentation"><a href="cadastrarCupom.jsp">Cadastrar cupom</a></li>
                 <li role="presentation"><a href="login.jsp">Entrar</a></li>
               </ul>
             </div>
