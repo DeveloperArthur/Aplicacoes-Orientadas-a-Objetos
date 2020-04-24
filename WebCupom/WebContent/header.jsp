@@ -12,21 +12,17 @@
 							<span class="icon-bar"></span>
 						</button>
             <div class="navbar-brand">
-              <a href="index.html"><h1><span>Com</span>pany</h1></a>
+              <a href="index.jsp"><h1><span>Com</span>pany</h1></a>
             </div>
           </div>
 
           <div class="navbar-collapse collapse">
             <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation"><a href="index.html" class="active">Home</a></li>
-                <li role="presentation"><a href="about.html">About Us</a></li>
-                <li role="presentation"><a href="services.html">Services</a></li>
-                <li role="presentation"><a href="portfolio.html">Portfolio</a></li>
-                <li role="presentation"><a href="blog.html">Blog</a></li>
-                <li role="presentation"><a href="contact.html">Contact</a></li>
                 <li role="presentation"><a href="cadastrarCupom.jsp">Cadastrar cupom</a></li>
                 <li role="presentation"><a href="login.jsp">Entrar</a></li>
+                <li role="presentation"><a href="ListarUsuarios">Listar usuarios</a></li>
+                <li role="presentation"><a href="ListarCupons">Listar cupons</a></li>
               </ul>
             </div>
           </div>
