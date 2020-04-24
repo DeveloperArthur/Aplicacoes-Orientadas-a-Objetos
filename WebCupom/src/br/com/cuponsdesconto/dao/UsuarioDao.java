@@ -5,6 +5,7 @@ import br.com.cuponsdesconto.entidades.Usuario;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -95,7 +96,23 @@ public class UsuarioDao extends Dao implements FuncoesDao {
 
     @Override
     public List<Entidade> buscarTodos() {
-        return null;  
+        String sql = "Select * from usuario";
+        List<Entidade> usuarios = new ArrayList<>();
+        try {
+        	this.conectar();
+        	this.stmt = this.conn.prepareStatement(sql);
+        	ResultSet rs = this.stmt.executeQuery();
+        	while(rs.next()){
+        		Usuario usuario = new Usuario();
+        		usuario.setId(rs.getInt("id"));
+        		usuario.setNome(rs.getString("nome"));
+        		usuario.setCpf(rs.getString("cpf"));
+        		usuario.setEmail(rs.getString("email"));
+        		usuarios.add(usuario);
+        	}
+        }catch(SQLException ex) {
+        	return null;
+        }
+        return usuarios;
     }
-
 }

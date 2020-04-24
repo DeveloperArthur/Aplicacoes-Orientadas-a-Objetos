@@ -2,9 +2,11 @@ package br.com.cuponsdesconto.dao;
 
 import br.com.cuponsdesconto.entidades.Cupom;
 import br.com.cuponsdesconto.entidades.Entidade;
+import br.com.cuponsdesconto.entidades.Usuario;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -96,7 +98,24 @@ public class CupomDao extends Dao implements FuncoesDao {
 
     @Override
     public List<Entidade> buscarTodos() {
-        return null;
+    	String sql = "Select * from cupom";
+        List<Entidade> cupons = new ArrayList<>();
+        try {
+        	this.conectar();
+        	this.stmt = this.conn.prepareStatement(sql);
+        	ResultSet rs = this.stmt.executeQuery();
+        	while(rs.next()){
+        		Cupom cupom = new Cupom();
+        		cupom.setId(rs.getInt("id"));
+        		cupom.setCodigoCupom(rs.getInt("codigoCupom"));
+        		cupom.setDescricao(rs.getString("descricao"));
+        		cupom.setNumeroDePontos(rs.getInt("numeroDePontos"));
+        		cupons.add(cupom);
+        	}
+        }catch(SQLException ex) {
+        	return null;
+        }
+        return cupons;
     }
     
 }
