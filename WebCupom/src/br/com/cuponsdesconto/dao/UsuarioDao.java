@@ -57,13 +57,14 @@ public class UsuarioDao extends Dao implements FuncoesDao {
     @Override
     public boolean atualizar(Entidade entidade) {
         Usuario usuario = (Usuario) entidade;
-        String sql = "update usuario set nome = ?, cpf = ? where id = ?";
+        String sql = "update usuario set nome = ?, cpf = ?, email = ? where id = ?";
         try {
         	this.conectar();
         	this.stmt = this.conn.prepareStatement(sql);
         	this.stmt.setString(1, usuario.getNome());
         	this.stmt.setString(2, usuario.getCpf());
-        	this.stmt.setInt(3, usuario.getId());
+        	this.stmt.setString(3, usuario.getEmail());
+        	this.stmt.setInt(4, usuario.getId());
         	this.stmt.execute();
         }catch(SQLException ex) {
         	System.out.println("Erro ao atualizar Usuario: "+ex.getMessage());
@@ -85,6 +86,7 @@ public class UsuarioDao extends Dao implements FuncoesDao {
         		usuario.setId(rs.getInt("id"));
         		usuario.setNome(rs.getString("nome"));
         		usuario.setCpf(rs.getString("cpf"));
+        		usuario.setEmail(rs.getString("email"));
         		return usuario;
         	}
         }catch(SQLException ex) {
