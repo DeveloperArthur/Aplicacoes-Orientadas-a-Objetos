@@ -49,6 +49,7 @@
                   		<td>Email</td>
                   		<td>CPF</td>
                   		<td>Excluir</td>
+                  		<td>Atualizar</td>
                   	</tr>
                   	<%
                   		for(Usuario usuario : usuarios){
@@ -58,6 +59,8 @@
                   		<td><%=usuario.getNome()%></td>
                   		<td><%=usuario.getEmail()%></td>
                   		<td><%=usuario.getCpf()%></td>
+                  		<td><a href="UsuarioController?acao=excluir&id=<%=usuario.getId()%>">Excluir</a></td>
+                  		<td><a href="UsuarioController?acao=preEditar&id=<%=usuario.getId()%>">Atualizar</a></td>
                   		<td></td>
                   	</tr>
                   	<%}%>

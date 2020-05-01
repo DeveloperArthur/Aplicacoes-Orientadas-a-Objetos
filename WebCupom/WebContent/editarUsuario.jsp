@@ -1,3 +1,4 @@
+<%@page import="br.com.cuponsdesconto.entidades.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -24,6 +25,9 @@
 </head>
 
 <body>
+<%
+	Usuario usuario = (Usuario)request.getAttribute("usuario");
+%>
 <%@include file="header.jsp" %>
   <section id="main-slider" class="no-margin">
     <div class="carousel slide">
@@ -34,12 +38,15 @@
               <div class="col-sm-6">
                 <div class="carousel-content">
                   
-                  <p class="animation animated-item-2">Entre para gerenciar seus cupons</p>
-                  <form>
-                  	<p>Email: <input type="email"/></p>
-                  	<p>Senha: <input type="password"/></p>
-                  	<input class="btn-slide animation animated-item-3" type="submit" value="Entrar"/>  
-                  <a class="btn-slide animation animated-item-3" href="cadastrarUsuario.jsp">Cadastre-se</a>
+                  <p class="animation animated-item-2">Atualize seu cadastro</p>
+                  <form action="UsuarioController">
+                  	<p>Nome: <input type="text" name="nome" value="<%=usuario.getNome()%>"/></p>
+                  	<p>CPF: <input type="text" name="cpf" value="<%=usuario.getCpf()%>"/></p>
+                  	<p>Email: <input type="email" name="email" value="<%=usuario.getEmail()%>"/></p>
+                  	<p>Senha: <input type="password" name="senha" value="<%=usuario.getSenha()%>"/></p>
+                  	<input type="hidden" name="acao" value="atualizar"/>
+                  	<input type="hidden" name="id" value="<%=usuario.getId()%>"/>
+                  	<input class="btn-slide animation animated-item-3" type="submit" value="Atualizar"/>
                   </form>
                 </div>
               </div>

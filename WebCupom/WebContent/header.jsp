@@ -21,7 +21,7 @@
               <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation"><a href="cadastrarCupom.jsp">Cadastrar cupom</a></li>
                 <li role="presentation"><a href="login.jsp">Entrar</a></li>
-                <li role="presentation"><a href="ListarUsuarios">Listar usuarios</a></li>
+                <li role="presentation"><a href="UsuarioController?acao=listar">Listar usuarios</a></li>
                 <li role="presentation"><a href="ListarCupons">Listar cupons</a></li>
               </ul>
             </div>

@@ -34,12 +34,14 @@
               <div class="col-sm-6">
                 <div class="carousel-content">
                   
-                  <p class="animation animated-item-2">Entre para gerenciar seus cupons</p>
-                  <form>
-                  	<p>Email: <input type="email"/></p>
-                  	<p>Senha: <input type="password"/></p>
-                  	<input class="btn-slide animation animated-item-3" type="submit" value="Entrar"/>  
-                  <a class="btn-slide animation animated-item-3" href="cadastrarUsuario.jsp">Cadastre-se</a>
+                  <p class="animation animated-item-2">Efetue seu cadastro</p>
+                  <form action="UsuarioController">
+                  	<p>Nome: <input type="text" name="nome"/></p>
+                  	<p>CPF: <input type="text" name="cpf"/></p>
+                  	<p>Email: <input type="email" name="email"/></p>
+                  	<p>Senha: <input type="password" name="senha"/></p>
+                  	<input type="hidden" name="acao" value="cadastrar"/>
+                  	<input class="btn-slide animation animated-item-3" type="submit" value="Cadastrar"/>
                   </form>
                 </div>
               </div>
