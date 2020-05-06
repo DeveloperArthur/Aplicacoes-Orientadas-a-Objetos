@@ -11,7 +11,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Company-HTML Bootstrap theme</title>
+  <title>Listar Cupons</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -44,19 +44,21 @@
                   <p class="animation animated-item-2">Todos os cupons cadastrados</p>
                   <table style="width:100%">
                   	<tr>
-                  		<td>Id</td>
                   		<td>Codigo do cupom</td>
                   		<td>Descrição</td>
                   		<td>Numero de pontos</td>
+                  		<td>Excluir</td>
+                  		<td>Atualizar</td>
                   	</tr>
                   	<%
                   		for(Cupom cupom : cupons){
                   	%>
                   	<tr>
-                  		<td><%=cupom.getId()%></td>
                   		<td><%=cupom.getCodigoCupom()%></td>
                   		<td><%=cupom.getDescricao()%></td>
                   		<td><%=cupom.getNumeroDePontos()%></td>
+                  		<td><a href="CupomController?acao=excluir&id=<%=cupom.getId()%>">Excluir</a></td>
+                  		<td><a href="CupomController?acao=preEditar&id=<%=cupom.getId()%>">Atualizar</a></td>
                   	</tr>
                   	<%}%>
                   </table>

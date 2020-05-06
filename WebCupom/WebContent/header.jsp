@@ -22,7 +22,7 @@
                 <li role="presentation"><a href="cadastrarCupom.jsp">Cadastrar cupom</a></li>
                 <li role="presentation"><a href="login.jsp">Entrar</a></li>
                 <li role="presentation"><a href="UsuarioController?acao=listar">Listar usuarios</a></li>
-                <li role="presentation"><a href="ListarCupons">Listar cupons</a></li>
+                <li role="presentation"><a href="CupomController?acao=listar">Listar cupons</a></li>
               </ul>
             </div>
           </div>
