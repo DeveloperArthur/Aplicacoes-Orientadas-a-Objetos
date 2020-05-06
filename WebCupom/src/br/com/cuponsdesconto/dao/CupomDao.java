@@ -57,7 +57,7 @@ public class CupomDao extends Dao implements FuncoesDao {
     @Override
     public boolean atualizar(Entidade entidade) {
         Cupom cupom = (Cupom) entidade;
-        String sql = "update usuario set codigoCupom = ?, descricao = ?, numeroDePontos = ? where id = ?";
+        String sql = "update cupom set codigoCupom = ?, descricao = ?, numeroDePontos = ? where id = ?";
         try {
         	this.conectar();
         	this.stmt = this.conn.prepareStatement(sql);
@@ -67,7 +67,7 @@ public class CupomDao extends Dao implements FuncoesDao {
         	this.stmt.setInt(4, cupom.getId());
         	this.stmt.execute();
         }catch(SQLException ex) {
-        	System.out.println("Erro ao atualizar Usuario: "+ex.getMessage());
+        	System.out.println("Erro ao atualizar cupom: "+ex.getMessage());
         	return false;
         }
         return true;
