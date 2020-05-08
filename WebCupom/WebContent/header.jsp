@@ -12,15 +12,16 @@
 							<span class="icon-bar"></span>
 						</button>
             <div class="navbar-brand">
-              <a href="index.jsp"><h1><span>Com</span>pany</h1></a>
+              <a href="index.jsp"><h1><span>Web</span>Cupom</h1></a>
             </div>
           </div>
 
           <div class="navbar-collapse collapse">
             <div class="menu">
               <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation"><a href="login.jsp">Entrar</a></li>
                 <li role="presentation"><a href="cadastrarCupom.jsp">Cadastrar cupom</a></li>
-                <li role="presentation"><a href="login.jsp">Entrar</a></li>
+                <li role="presentation"><a href="cadastrarUsuarioCupom.jsp">Cadastrar usuario cupons</a></li>
                 <li role="presentation"><a href="UsuarioController?acao=listar">Listar usuarios</a></li>
                 <li role="presentation"><a href="CupomController?acao=listar">Listar cupons</a></li>
               </ul>

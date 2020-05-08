@@ -33,9 +33,10 @@
             <div class="row slide-margin">
               <div class="col-sm-6">
                 <div class="carousel-content">
-                  <h2 class="animation animated-item-1">Welcome <span>Company</span></h2>
-                  <p class="animation animated-item-2">Accusantium doloremque laudantium totam rem aperiam, eaque ipsa...</p>
-                  <a class="btn-slide animation animated-item-3" href="#">Read More</a>
+                  <h2 class="animation animated-item-1">Cupons de<span> Desconto</span></h2>
+                  <p class="animation animated-item-2">CRUD com usuarios e cupons</p>
+                  <p class="animation animated-item-2">To com preguiça de editar esse layout</p>
+                  <p class="animation animated-item-2">vai ficar assim mesmo</p>
                 </div>
               </div>
 
