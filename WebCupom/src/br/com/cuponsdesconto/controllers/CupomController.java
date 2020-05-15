@@ -35,7 +35,7 @@ public class CupomController extends HttpServlet {
 			    else
 			    	request.setAttribute("mensagem", "Erro no cadastro");
 			    
-			    request.getRequestDispatcher("confirmacaoCadastro.jsp").forward(request, response);
+			    response.sendRedirect("CupomController?acao=listar");
 			    break;
 			case "listar":
 				List<Cupom> cupons = (List<Cupom>)(List<?>) new CupomDao().buscarTodos();

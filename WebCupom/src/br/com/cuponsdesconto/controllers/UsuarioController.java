@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.cuponsdesconto.dao.UsuarioDao;
 import br.com.cuponsdesconto.entidades.Usuario;
@@ -70,6 +71,26 @@ public class UsuarioController extends HttpServlet {
 			    
 			    request.getRequestDispatcher("confirmacaoCadastro.jsp").forward(request, response);
 			    break;
+			case "logar":
+				String email = request.getParameter("email");
+				String senha = request.getParameter("senha");
+				
+				HttpSession sessao = request.getSession();
+				
+				Usuario usuario = dao.efetuarLogin(email, senha);
+				if(usuario != null) {
+					sessao.setAttribute("usuario", usuario);
+					request.getRequestDispatcher("index.jsp").forward(request, response);
+				}else {
+					sessao.invalidate();
+					request.getRequestDispatcher("login.jsp").forward(request, response);
+				}
+				break;
+			case "sair":
+				HttpSession sessaoLogout = request.getSession();
+				sessaoLogout.invalidate();
+				response.sendRedirect("login.jsp");
+				break;
 		}
 	}
 }

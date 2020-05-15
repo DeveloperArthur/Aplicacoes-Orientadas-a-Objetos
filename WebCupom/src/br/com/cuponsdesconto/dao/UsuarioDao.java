@@ -118,4 +118,26 @@ public class UsuarioDao extends Dao implements FuncoesDao {
         }
         return usuarios;
     }
+    
+    public Usuario efetuarLogin(String email, String senha) {
+    	String sql = "select * from usuario where email = ? and senha = ?";
+    	try {
+    		this.conectar();
+    		this.stmt = this.conn.prepareStatement(sql);
+    		this.stmt.setString(1, email);
+    		this.stmt.setString(2, senha);
+    		ResultSet rs = this.stmt.executeQuery();
+    		if(rs.next()) {
+    			Usuario usuario = new Usuario();
+        		usuario.setId(rs.getInt("id"));
+        		usuario.setNome(rs.getString("nome"));
+        		usuario.setCpf(rs.getString("cpf"));
+        		usuario.setEmail(rs.getString("email"));
+        		return usuario;
+    		}
+    	}catch(SQLException ex) {
+    		return null;
+    	}
+    	return null;
+    }
 }
