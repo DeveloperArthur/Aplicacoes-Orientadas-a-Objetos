@@ -24,7 +24,6 @@
 </head>
 
 <body>
-<%@include file="header.jsp" %>
   <section id="main-slider" class="no-margin">
     <div class="carousel slide">
       <div class="carousel-inner">

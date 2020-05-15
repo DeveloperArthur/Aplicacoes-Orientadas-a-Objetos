@@ -24,7 +24,6 @@
 </head>
 
 <body>
-<%@include file="header.jsp" %>
   <section id="main-slider" class="no-margin">
     <div class="carousel slide">
       <div class="carousel-inner">
@@ -35,9 +34,10 @@
                 <div class="carousel-content">
                   
                   <p class="animation animated-item-2">Entre para gerenciar seus cupons</p>
-                  <form>
-                  	<p>Email: <input type="email"/></p>
-                  	<p>Senha: <input type="password"/></p>
+                  <form action="UsuarioController">
+                  	<p>Email: <input type="email" name="email"/></p>
+                  	<p>Senha: <input type="password" name="senha"/></p>
+                  	<input type="hidden" name="acao" value="logar"/>
                   	<input class="btn-slide animation animated-item-3" type="submit" value="Entrar"/>  
                   <a class="btn-slide animation animated-item-3" href="cadastrarUsuario.jsp">Cadastre-se</a>
                   </form>

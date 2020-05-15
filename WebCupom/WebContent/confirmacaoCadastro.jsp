@@ -26,7 +26,6 @@
 	String mensagem = (String) request.getAttribute("mensagem");
 %>
 <body>
-<%@include file="header.jsp" %>
   <section id="main-slider" class="no-margin">
     <div class="carousel slide">
       <div class="carousel-inner">
@@ -38,6 +37,7 @@
                   
                   <p class="animation animated-item-2"><%=mensagem %></p>
                 </div>
+                <a class="btn-slide animation animated-item-3" href="index.jsp">Voltar</a>
               </div>
 
               <div class="col-sm-6 hidden-xs animation animated-item-4">
