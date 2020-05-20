@@ -140,4 +140,23 @@ public class UsuarioDao extends Dao implements FuncoesDao {
     	}
     	return null;
     }
+    
+    public Usuario buscarPorCpf(String cpf) {
+    	String sql = "select id from usuario where cpf = ?";
+    	try {
+    		this.conectar();
+    		this.stmt = this.conn.prepareStatement(sql);
+    		this.stmt.setString(1, cpf);
+    		ResultSet rs = this.stmt.executeQuery();
+    		if(rs.next()) {
+    			Usuario usuario = new Usuario();
+    			usuario.setId(rs.getInt("id"));
+    			return usuario;
+    		}
+    	}catch(SQLException ex) {
+        	System.out.println("Erro ao buscar Usuario: "+ex.getMessage());
+    		return null;
+    	}
+    	return null;
+    }
 }

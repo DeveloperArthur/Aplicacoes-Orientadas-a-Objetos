@@ -112,5 +112,4 @@ public class UsuarioCupomDao extends Dao implements FuncoesDao{
         }
         return usuarioscupons;
     }
-
 }

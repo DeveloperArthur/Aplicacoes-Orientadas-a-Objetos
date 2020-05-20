@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.cuponsdesconto.dao.CupomDao;
 import br.com.cuponsdesconto.dao.UsuarioCupomDao;
+import br.com.cuponsdesconto.dao.UsuarioDao;
+import br.com.cuponsdesconto.entidades.Cupom;
+import br.com.cuponsdesconto.entidades.Usuario;
 import br.com.cuponsdesconto.entidades.UsuarioCupom;
 
 @WebServlet("/UsuarioCupomController")
@@ -25,15 +29,21 @@ public class UsuarioCupomController extends HttpServlet {
 		String acao = request.getParameter("acao");
 		switch(acao) {
 			case "cadastrar":
-				int idUsuarioParaCadastrar = Integer.parseInt(request.getParameter("idUsuario"));
-				int idCupomParaCadastrar = Integer.parseInt(request.getParameter("idCupom"));
+				String cpfUsuario = request.getParameter("cpfUsuario");
+				int codigoCupom = Integer.parseInt(request.getParameter("codigoCupom"));
 				
-				UsuarioCupom usuCupCadastro = new UsuarioCupom(idUsuarioParaCadastrar, idCupomParaCadastrar);
-				if(dao.adicionar(usuCupCadastro))
-					request.setAttribute("mensagem", "Cadastro realizado com sucesso");
-			    else
-			    	request.setAttribute("mensagem", "Erro no cadastro");
-			    
+				Usuario usuarioParaCadastrar = new UsuarioDao().buscarPorCpf(cpfUsuario);
+				Cupom cupomParaCadastrar = new CupomDao().buscarPorCodigo(codigoCupom);
+				
+				if(usuarioParaCadastrar != null && cupomParaCadastrar != null) {
+					UsuarioCupom usuCupCadastro = new UsuarioCupom(usuarioParaCadastrar.getId(), cupomParaCadastrar.getId());
+					if(dao.adicionar(usuCupCadastro))
+						request.setAttribute("mensagem", "Cadastro realizado com sucesso");
+				    else
+				    	request.setAttribute("mensagem", "Erro no cadastro");
+				}else
+					request.setAttribute("mensagem", "CPF ou código incorretos ou inexistentes");
+				
 			    request.getRequestDispatcher("confirmacaoCadastro.jsp").forward(request, response);
 			    break;
 			case "listar":

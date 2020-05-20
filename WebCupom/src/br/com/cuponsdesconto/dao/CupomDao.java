@@ -118,4 +118,23 @@ public class CupomDao extends Dao implements FuncoesDao {
         return cupons;
     }
     
+    public Cupom buscarPorCodigo(int codigoCupom) {
+    	String sql = "select id from cupom where codigoCupom = ?";
+    	try {
+    		this.conectar();
+    		this.stmt = this.conn.prepareStatement(sql);
+    		this.stmt.setInt(1, codigoCupom);
+    		ResultSet rs = this.stmt.executeQuery();
+    		if(rs.next()) {
+    			Cupom cupom = new Cupom();
+    			cupom.setId(rs.getInt("id"));
+    			return cupom;
+    		}
+    	}catch(SQLException ex) {
+        	System.out.println("Erro ao buscar Cupom: "+ex.getMessage());
+    		return null;
+    	}
+    	return null;
+    }
+    
 }
