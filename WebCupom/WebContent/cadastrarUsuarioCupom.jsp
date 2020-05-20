@@ -39,8 +39,8 @@
                   
                   <p class="animation animated-item-2">Efetue seu cadastro do usuario e seus cupons</p>
                   <form action="UsuarioCupomController">
-                  	<p>Usuário: <%=buscaUsuarios()%></p>
-                  	<p>Código do cupom <input type="number" name="idCupom"/></p>
+                  	<p>CPF do usuário <input type="text" name="cpfUsuario"></p>
+                  	<p>Código do cupom <input type="number" name="codigoCupom"/></p>
                   	<input type="hidden" name="acao" value="cadastrar"/>
                   	<input class="btn-slide animation animated-item-3" type="submit" value="Cadastrar"/>
                   </form>
@@ -70,7 +70,7 @@
 </html>
 
 <%!
-	public String buscaUsuarios(){
+	/*public String buscaUsuarios(){
 		List<Usuario> usuarios = (List<Usuario>)(List<?>) new UsuarioDao().buscarTodos();
 		String html = "<select name=\"idUsuario\">";
 		for(Usuario usu : usuarios){
@@ -78,7 +78,7 @@
 		}
 		html += "</select>";
 		return html;
-	}
+	}*/
 %>
 
     
