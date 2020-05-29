@@ -29,13 +29,13 @@ public class UsuarioDao extends Dao implements FuncoesDao {
             System.out.println("Erro ao inserir Usuario "+ex.getMessage());
             return false;
         }
-        finally{
+        /*finally{
             try {
                 this.conn.close();
             } catch (SQLException ex) {
                 Logger.getLogger(UsuarioDao.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }*/
         return true;
     }
 
