@@ -23,28 +23,25 @@ public class Api extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		String acao = request.getParameter("acao");
 		String retorno = "";
 		try(PrintWriter out = response.getWriter()){
-			switch(acao) {
-				case "logar":
-					String email = request.getParameter("email");
-					String senha = request.getParameter("senha");
-					Usuario usuario = new UsuarioDao().efetuarLogin(email, senha);
-					retorno = new Gson().toJson(usuario);
-					break;
+			if(acao.equals("logar")) {
+				String email = request.getParameter("email");
+				String senha = request.getParameter("senha");
+				Usuario usuario = new UsuarioDao().efetuarLogin(email, senha);
+				retorno = new Gson().toJson(usuario);
 			}
-			
 			out.print(retorno);
 			out.flush();
 		}catch(Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Erro: "+e.getMessage());
 		}
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }
